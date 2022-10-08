@@ -1,6 +1,5 @@
 import axios from "axios";
 import Head from "next/head";
-import Image from "next/image";
 import { useState } from "react";
 import Add from "../components/Add";
 import AddButton from "../components/AddButton";
@@ -13,7 +12,7 @@ export default function Home({ pizzaList, admin }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Pizza Restaurant in Newyork</title>
+        <title>Pizza Restaurant in HCM city</title>
         <meta name="description" content="Best pizza shop in town" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -28,8 +27,9 @@ export default function Home({ pizzaList, admin }) {
 export const getServerSideProps = async (ctx) => {
   const myCookie = ctx.req?.cookies || "";
   let admin = false;
-
+  console.log("false", { myCookie })
   if (myCookie.token === process.env.TOKEN) {
+    console.log("true")
     admin = true;
   }
 

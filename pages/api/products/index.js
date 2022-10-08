@@ -3,9 +3,9 @@ import Product from "../../../models/Product";
 
 export default async function handler(req, res) {
   const { method, cookies } = req;
-
   const token = cookies.token
 
+  console.log({ method, cookies, token })
   dbConnect();
 
   if (method === "GET") {
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   }
 
   if (method === "POST") {
-    if(!token || token !== process.env.token){
+    if (!token || token !== process.env.token) {
       return res.status(401).json("Not authenticated!")
     }
     try {

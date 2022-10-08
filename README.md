@@ -4,6 +4,7 @@ open Source Code on any IDE
 open terminal or commander on this direction
 npm install yarn
 yarn
+yarn build
 yarn dev
 
 #Technique
